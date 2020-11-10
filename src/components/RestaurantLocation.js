@@ -24,7 +24,7 @@ export default function RestaurantLocation({ data }) {
       >
         <img
           className={
-            data.id === hoveredItemId
+            data.place_id === hoveredItemId
               ? `${classes.locatorIcon} ${classes.activeLocatorIcon}`
               : classes.locatorIcon
           }

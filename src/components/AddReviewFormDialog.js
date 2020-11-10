@@ -7,7 +7,6 @@ import DialogContent from '@material-ui/core/DialogContent'
 import DialogContentText from '@material-ui/core/DialogContentText'
 import DialogTitle from '@material-ui/core/DialogTitle'
 import { RestaurantListContext } from '../context/RestaurantListContextProvider'
-import { Grid } from '@material-ui/core'
 import { Rating } from '@material-ui/lab'
 
 export default function AddReviewFormDialog() {
@@ -42,35 +41,43 @@ export default function AddReviewFormDialog() {
         onClose={handleClose}
         aria-labelledby="form-dialog-title"
       >
-        <DialogTitle id="form-dialog-title">title</DialogTitle>
-        <DialogContent>
+        <DialogTitle id="form-dialog-title">
+          Write a review for this location
+        </DialogTitle>
+        <DialogContent style={{ padding: 50 }}>
           <DialogContentText>
-            To subscribe to this website, please enter your email address here.
-            We will send updates occasionally.
+            To write a review to this restaurant, please enter your name and
+            describe your experience at this place. We will send updates
+            occasionally.
           </DialogContentText>
 
-          <Grid container direction="column">
-            <TextField
-              label="name"
-              value={name}
-              onChange={(event) => setName(event.target.value)}
-            />
-            <TextField
-              label="description"
-              placeholder="share details of your own experience at this place"
-              value={description}
-              onChange={(event) => setDescription(event.target.value)}
-              multiline
-              rows={4}
-              variant="outlined"
-            />
-            <Rating
-              value={value}
-              onChange={(event, newValue) => {
-                setValue(newValue)
-              }}
-            />
-          </Grid>
+          <TextField
+            label="name"
+            value={name}
+            onChange={(event) => setName(event.target.value)}
+            fullWidth
+            autoFocus
+            margin="dense"
+          />
+          <TextField
+            label="description"
+            placeholder="share details of your own experience at this place"
+            value={description}
+            onChange={(event) => setDescription(event.target.value)}
+            multiline
+            rows={5}
+            fullWidth
+            autoFocus
+            margin="dense"
+          />
+          <Rating
+            precision={0.5}
+            value={value}
+            onChange={(event, newValue) => {
+              setValue(newValue)
+            }}
+            style={{ marginTop: 10 }}
+          />
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose} color="primary">

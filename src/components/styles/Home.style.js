@@ -12,7 +12,19 @@ const useStyles = makeStyles((theme) => ({
   },
   list: {
     height: `calc(100vh - ${appBarHeight}px)`,
-    overflow: 'auto'
+    overflow: 'auto',
+    '&::-webkit-scrollbar': {
+      width: 0
+    },
+
+    '&::-webkit-scrollbar-track': {
+      '-webkit-box-shadow': 'inset 0 0 3px rgba(0,0,0,0.3)'
+    },
+
+    '&::-webkit-scrollbar-thumb': {
+      backgroundColor: 'darkgrey',
+      outline: '1px solid slategrey'
+    }
   },
   map: {
     height: `calc(100vh - ${appBarHeight}px)`,

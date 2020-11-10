@@ -10,9 +10,10 @@ const useStyles = makeStyles((theme) => ({
     paddingRight: 30
   },
   sortBox: {
-    // alignItems: 'center',
-    // justifyContent: 'center'
     textAlign: 'center'
+  },
+  rangeBox: {
+    width: 300
   }
 }))
 

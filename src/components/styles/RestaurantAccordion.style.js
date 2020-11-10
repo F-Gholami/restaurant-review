@@ -18,7 +18,15 @@ const useStyles = makeStyles((theme) => ({
     width: '100%',
     padding: theme.spacing(2),
     backgroundColor: 'lightGray'
+    // '& Button': {
+    //   left: '70%',
+    //   textDecoration: 'underline'
+    //   // [theme.breakpoints.only('md')]: {
+    //   //   left: '20%'
+    //   // }
+    // }
   },
+
   AccordionSummaryroot: {
     border: '1px solid rgba(0, 0, 0, .125)',
     boxShadow: 'none',
@@ -40,7 +48,7 @@ const useStyles = makeStyles((theme) => ({
     cursor: 'pointer',
     transition: 'background-color 0.2s ease-in',
     '&:hover': {
-      backgroundColor: 'lightgray'
+      backgroundColor: 'rgba(0, 0, 0, .125)'
     },
     [theme.breakpoints.down('sm')]: {
       flexDirection: 'column'

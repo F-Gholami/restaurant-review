@@ -10,9 +10,9 @@ import { Paper, Typography } from '@material-ui/core'
 export default function Map() {
   const classes = useStyles()
   const {
-    list,
+    center,
+    setCenter,
     filteredList,
-    setFilteredList,
     setOpenNewRestaurantForm,
     setLatsBoundry,
     setLngsBoundry,
@@ -20,11 +20,7 @@ export default function Map() {
     setAddingNewRestaurantByClickOnMap
   } = useContext(RestaurantListContext)
 
-  const [center, setcenter] = useState({
-    lat: 53.3498,
-    lng: -6.2603
-  })
-  const [zoom, setzoom] = useState(10)
+  const [zoom, setzoom] = useState(12)
 
   const [selectedcoordinates, setSelectedcoordinates] = useState({
     lat: 52.27971937910408,
@@ -39,35 +35,36 @@ export default function Map() {
     }
   }
 
-  const handleChangeMapView = ({ bounds }) => {
+  const handleChangeMapView = ({ bounds, center }) => {
     const lats = [bounds.ne.lat, bounds.se.lat]
     const lngs = [bounds.ne.lng, bounds.nw.lng]
     setLatsBoundry([...lats])
     setLngsBoundry([...lngs])
+    // setCenter({ ...center })
+    // console.log(data)
   }
 
   return (
     <div className={classes.root}>
       <GoogleMapReact
-        defaultCenter={center}
-        defaultZoom={zoom}
+        center={{ ...center }}
+        zoom={zoom}
+        bootstrapURLKeys={{
+          key: process.env.REACT_APP_GOOGLE_API_KEY
+          // key: 'AIzaSyAG6vJ37JinDRsOSaP7h7pftZKv3nyDOCY'
+        }}
         yesIWantToUseGoogleMapApiInternals
         onChange={handleChangeMapView}
         onClick={handleClickOnMap}
       >
         {filteredList.map((restaurant) => (
           <RestaurantLocation
-            key={restaurant.id}
+            key={restaurant.place_id}
             lat={restaurant.M.lat}
             lng={restaurant.M.lng}
             data={restaurant}
           />
         ))}
-        {/* this gave me a bunch of errors in console, so I deleted it... */}
-        {/* <LocationIcon
-          lat={selectedcoordinates.lat}
-          lng={selectedcoordinates.lng}
-        /> */}
         <AddNewRestaurantFormDialog
           lat={selectedcoordinates.lat}
           lng={selectedcoordinates.lng}

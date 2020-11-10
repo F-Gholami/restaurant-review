@@ -1,6 +1,6 @@
 export const RestaurantsData = [
   {
-    id: 11,
+    place_id: 11,
     restaurantName: 'Samy',
     address: '39 You never want to return avenue, Blancharstown, Dublin 15',
     lat: 52.222061459759395,
@@ -25,7 +25,7 @@ export const RestaurantsData = [
     ]
   },
   {
-    id: 1,
+    place_id: 1,
     restaurantName: "Big Al's Feast",
     address: '39 You never want to return avenue, Blancharstown, Dublin 15',
     avatar:
@@ -52,7 +52,7 @@ export const RestaurantsData = [
     ]
   },
   {
-    id: 2,
+    place_id: 2,
     restaurantName: 'Burger Feast',
     address: '13 long walk drive, Blanchardstown, dublin 15',
     avatar:
@@ -79,7 +79,7 @@ export const RestaurantsData = [
     ]
   },
   {
-    id: 3,
+    place_id: 3,
     restaurantName: 'Pizza palace',
     address: '23 corduff road, blanchardstown, Dublin 15',
     avatar:
@@ -94,7 +94,7 @@ export const RestaurantsData = [
     ratings: [
       {
         user: 'Little miss hungry',
-        stars: 0,
+        stars: 1,
         comment:
           "All of a sudden I'm not so hungry after seeing the roadkill they tried to serve me!"
       },

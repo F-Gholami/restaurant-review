@@ -10,6 +10,9 @@ import { RestaurantListContext } from '../context/RestaurantListContextProvider'
 import Geocode from 'react-geocode'
 import nextId from 'react-id-generator'
 
+Geocode.setApiKey(process.env.REACT_APP_GOOGLE_API_KEY)
+// Geocode.setApiKey('AIzaSyAG6vJ37JinDRsOSaP7h7pftZKv3nyDOCY')
+
 export default function AddNewRestaurantFormDialog({ lat, lng }) {
   const {
     openNewRestaurantForm,
@@ -38,11 +41,17 @@ export default function AddNewRestaurantFormDialog({ lat, lng }) {
 
   const handleSubmit = () => {
     const data = {
-      id: nextId(),
+      place_id: nextId(),
       restaurantName: restaurantName,
       address: address,
       rating: 0,
-      ratings: [],
+      ratings: [
+        {
+          user: '',
+          stars: 0,
+          comment: ''
+        }
+      ],
       lat: lat,
       long: lng,
       M: {
