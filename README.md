@@ -17,9 +17,9 @@ A user can also add restaurants and reviews.
 ### Set up
 To run this project:
 
-clone to your local machine
-get a Google API key and restrict its use to the Maps API, the Places API and the Street View API
-create a .env file in the root folder and add your API key as follows: GOOGLE_API_KEY = <YOUR-KEY>
-make sure you have Node and NPM installed by running node --version (I used v10.4.1) and npm --version (I used 6.13.4)
-run npm install to install NPM packages
-run npm start to start a local dev server
+- clone to your local machine
+- get a Google API key and restrict its use to the Maps API, the Places API and the Street View API
+- create a .env file in the root folder and add your API key as follows: GOOGLE_API_KEY = <YOUR-KEY>
+- make sure you have Node and NPM installed
+- run npm install to install NPM packages
+- run npm start to start a local dev server
